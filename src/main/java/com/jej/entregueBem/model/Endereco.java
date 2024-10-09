@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 public class Endereco {
 
 	@Id
-	private String cep;
+	private Long cep;
 	private String logradouro;
 	private String complemento;
 	private String bairro;
@@ -29,11 +29,11 @@ public class Endereco {
 	private String ddd;
 	private String siafi;
 
-	public String getCep() {
+	public Long getCep() {
 		return cep;
 	}
 
-	public void setCep(String cep) {
+	public void setCep(Long cep) {
 		this.cep = cep;
 	}
 

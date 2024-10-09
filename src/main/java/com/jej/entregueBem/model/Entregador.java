@@ -12,7 +12,8 @@ public class Entregador {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-    
+    private String codigo;
+
     public Long getId() {
         return id;
     }
@@ -25,6 +26,13 @@ public class Entregador {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public String getCodigo() {
+        return codigo;
+    }
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -47,8 +55,6 @@ public class Entregador {
         } else if (!id.equals(other.id))
             return false;
         return true;
-    }
-
-    
+    }   
     
 }
