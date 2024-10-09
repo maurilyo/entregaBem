@@ -4,21 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "CLIENTE")
-public class Cliente {
+@Entity(name = "ENTREGADOR")
+public class Entregador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-
-    @ManyToOne
-    private Endereco endereco;
-
+    
     public Long getId() {
         return id;
     }
@@ -30,12 +24,6 @@ public class Cliente {
     }
     public void setNome(String nome) {
         this.nome = nome;
-    }
-    public Endereco getEndereco() {
-        return endereco;
-    }
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
     @Override
     public int hashCode() {
@@ -52,7 +40,7 @@ public class Cliente {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Cliente other = (Cliente) obj;
+        Entregador other = (Entregador) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -61,5 +49,6 @@ public class Cliente {
         return true;
     }
 
+    
     
 }

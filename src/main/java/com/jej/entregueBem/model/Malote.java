@@ -1,5 +1,7 @@
 package com.jej.entregueBem.model;
 
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,34 +10,43 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "CLIENTE")
-public class Cliente {
+@Table(name = "MALOTE")
+public class Malote {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nome;
+    private String Descricao;
 
     @ManyToOne
-    private Endereco endereco;
+    private Cliente cliente;
 
+    @ManyToOne
+    private Entregador entregador;
+    
     public Long getId() {
         return id;
     }
     public void setId(Long id) {
         this.id = id;
     }
-    public String getNome() {
-        return nome;
+    public String getDescricao() {
+        return Descricao;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setDescricao(String descricao) {
+        Descricao = descricao;
     }
-    public Endereco getEndereco() {
-        return endereco;
+    public Cliente getCliente() {
+        return cliente;
     }
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    public Entregador getEntregador() {
+        return entregador;
+    }
+    public void setEntregador(Entregador entregador) {
+        this.entregador = entregador;
     }
     @Override
     public int hashCode() {
@@ -52,7 +63,7 @@ public class Cliente {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Cliente other = (Cliente) obj;
+        Malote other = (Malote) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
